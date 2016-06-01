@@ -12,7 +12,16 @@ class TblAnswers extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tbl_answers', function (Blueprint $table) 
+		{
+            $table->increments('ID')->unsigned()->unique();
+            $table->integer('QuestionID')->unsigned();
+			$table->string('Answer', 32);
+			$table->boolean('IsCorrect');
+			
+			// Foreign Keys
+			$table->foreign('QuestionID')->references('ID')->on('tbl_questions');
+        });
     }
 
     /**
@@ -22,6 +31,6 @@ class TblAnswers extends Migration
      */
     public function down()
     {
-        //
+		Schema::drop('tbl_answers');
     }
 }

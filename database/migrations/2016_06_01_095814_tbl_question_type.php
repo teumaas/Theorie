@@ -12,7 +12,11 @@ class TblQuestionType extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tbl_questions_type', function (Blueprint $table) 
+		{
+            $table->increments('ID')->unsigned()->unique();
+            $table->string('TypeName', 32);
+        });
     }
 
     /**
@@ -22,6 +26,6 @@ class TblQuestionType extends Migration
      */
     public function down()
     {
-        //
+		Schema::drop('tbl_questions_type');
     }
 }

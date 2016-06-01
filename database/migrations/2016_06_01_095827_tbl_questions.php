@@ -12,7 +12,18 @@ class TblQuestions extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tbl_questions', function (Blueprint $table) 
+		{
+            $table->increments('ID')->unsigned()->unique();
+            $table->integer('TypeID')->unsigned();
+            $table->integer('CategoryID')->unsigned();
+			$table->string('Title', 64);
+			$table->string('ImageURL');
+			
+			// Foreign Keys
+			$table->foreign('TypeID')->references('ID')->on('tbl_question_type');
+			$table->foreign('CategoryID')->references('ID')->on('tbl_question_category');
+        });
     }
 
     /**
@@ -22,6 +33,6 @@ class TblQuestions extends Migration
      */
     public function down()
     {
-        //
+		Schema::drop('tbl_questions');
     }
 }

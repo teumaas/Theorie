@@ -12,7 +12,15 @@ class TblAnswerMotivation extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tbl_answer_motivation', function (Blueprint $table) 
+		{
+            $table->increments('ID')->unsigned()->unique();
+            $table->integer('AnswerID')->unsigned();
+			$table->string('Context', 128);
+			
+			// Foreign Keys
+			$table->foreign('AnswerID')->references('ID')->on('tbl_answers');
+        });
     }
 
     /**
@@ -22,6 +30,6 @@ class TblAnswerMotivation extends Migration
      */
     public function down()
     {
-        //
+		Schema::drop('tbl_answer_motivation');
     }
 }

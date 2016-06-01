@@ -12,16 +12,18 @@ class TblUsers extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_users', function (Blueprint $usersTable) {
-            $usersTable->increments('ID');
-            $usersTable->string('FirstName', 32);
-            $usersTable->string('LastName', 32);
-            $usersTable->string('Username', 32)->unique();
-            $usersTable->string('Email', 64)->unique;
-            $usersTable->string('Password', 32);
-            $usersTable->rememberToken();
-            $usersTable->timestamps();
-        });
+		Schema::create('tbl_users', function (Blueprint $table)
+		{
+			$table->increments('ID')->unsigned()->unique();
+			$table->string('FirstName', 32);
+			$table->string('LastName', 32);
+			$table->string('Username', 32)->unique();
+			$table->string('Email', 64)->unique();
+			$table->string('Password', 32);
+			
+			$table->rememberToken();
+			$table->timestamps();
+		});
     }
 
     /**

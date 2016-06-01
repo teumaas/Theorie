@@ -12,7 +12,11 @@ class TblQuestionCategory extends Migration
      */
     public function up()
     {
-        //
+		Schema::create('tbl_questions_category', function (Blueprint $table) 
+		{
+            $table->increments('ID')->unsigned()->unique();
+            $table->string('CategoryName', 32);
+        });
     }
 
     /**
@@ -22,6 +26,6 @@ class TblQuestionCategory extends Migration
      */
     public function down()
     {
-        //
+		Schema::drop('tbl_questions_category');
     }
 }
