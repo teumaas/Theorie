@@ -1,8 +1,8 @@
 ## Setup
 
-run: composer install
-Rename .env.example to .env
-run: php artisan key:generate
+0. run: composer install
+0. Rename .env.example to .env
+0. run: php artisan key:generate
 
 # Laravel PHP Framework
 
