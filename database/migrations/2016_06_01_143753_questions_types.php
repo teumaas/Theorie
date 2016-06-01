@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblQuestionType extends Migration
+class QuestionsTypes extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class TblQuestionType extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_questions_type', function (Blueprint $table) 
+        Schema::create('questions_types', function (Blueprint $table) 
 		{
             $table->increments('ID')->unsigned()->unique();
             $table->string('TypeName', 32);
@@ -26,6 +26,6 @@ class TblQuestionType extends Migration
      */
     public function down()
     {
-		Schema::drop('tbl_questions_type');
+		Schema::drop('questions_types');
     }
 }

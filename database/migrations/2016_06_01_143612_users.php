@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblUsers extends Migration
+class Users extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class TblUsers extends Migration
      */
     public function up()
     {
-		Schema::create('tbl_users', function (Blueprint $table)
+		Schema::create('users', function (Blueprint $table)
 		{
 			$table->increments('ID')->unsigned()->unique();
 			$table->string('FirstName', 32);
@@ -33,6 +33,6 @@ class TblUsers extends Migration
      */
     public function down()
     {
-		Schema::drop('tbl_users');
+		Schema::drop('users');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblTest extends Migration
+class Exams extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class TblTest extends Migration
      */
     public function up()
     {
-		Schema::create('tbl_test', function (Blueprint $table) 
+		Schema::create('exams', function (Blueprint $table) 
 		{
             $table->increments('ID')->unsigned()->unique();
             $table->string('Title', 32);
-			$table->boolean('ExamOrPractice');
+			$table->boolean('Practice');
         });
     }
 
@@ -27,6 +27,6 @@ class TblTest extends Migration
      */
     public function down()
     {
-		Schema::drop('tbl_test');
+		Schema::drop('exams');
     }
 }

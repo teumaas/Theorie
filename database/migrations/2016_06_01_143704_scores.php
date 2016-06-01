@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblScore extends Migration
+class Scores extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class TblScore extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_score', function (Blueprint $table) 
+        Schema::create('scores', function (Blueprint $table) 
 		{
             $table->increments('ID')->unsigned()->unique();
             $table->integer('UserID')->unsigned();
@@ -20,9 +20,9 @@ class TblScore extends Migration
 			$table->integer('AnswerID')->unsigned();
 			
 			// Foreign Keys
-			$table->foreign('UserID')->references('ID')->on('tbl_users');
-			$table->foreign('QuestionID')->references('ID')->on('tbl_questions');
-			$table->foreign('AnswerID')->references('ID')->on('tbl_answers');
+			$table->foreign('UserID')->references('ID')->on('users');
+			$table->foreign('QuestionID')->references('ID')->on('questions');
+			$table->foreign('AnswerID')->references('ID')->on('answers');
         });
     }
 
@@ -33,6 +33,6 @@ class TblScore extends Migration
      */
     public function down()
     {
-		Schema::drop('tbl_score');
+		Schema::drop('scores');
     }
 }

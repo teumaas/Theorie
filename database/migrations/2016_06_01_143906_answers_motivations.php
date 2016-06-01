@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblAnswerMotivation extends Migration
+class AnswersMotivations extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class TblAnswerMotivation extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_answer_motivation', function (Blueprint $table) 
+        Schema::create('answers_motivations', function (Blueprint $table) 
 		{
             $table->increments('ID')->unsigned()->unique();
             $table->integer('AnswerID')->unsigned();
 			$table->string('Context', 128);
 			
 			// Foreign Keys
-			$table->foreign('AnswerID')->references('ID')->on('tbl_answers');
+			$table->foreign('AnswerID')->references('ID')->on('answers');
         });
     }
 
@@ -30,6 +30,6 @@ class TblAnswerMotivation extends Migration
      */
     public function down()
     {
-		Schema::drop('tbl_answer_motivation');
+		Schema::drop('answers_motivations');
     }
 }

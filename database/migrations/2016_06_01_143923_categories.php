@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblQuestionCategory extends Migration
+class Categories extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class TblQuestionCategory extends Migration
      */
     public function up()
     {
-		Schema::create('tbl_questions_category', function (Blueprint $table) 
+        Schema::create('categories', function (Blueprint $table) 
 		{
             $table->increments('ID')->unsigned()->unique();
-            $table->string('CategoryName', 32);
+			$table->string('Name', 32);
         });
     }
 
@@ -26,6 +26,6 @@ class TblQuestionCategory extends Migration
      */
     public function down()
     {
-		Schema::drop('tbl_questions_category');
+		Schema::drop('categories');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblTestQuestions extends Migration
+class ExamsQuestions extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,15 @@ class TblTestQuestions extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_test_questions', function (Blueprint $table) 
+        Schema::create('exams_questions', function (Blueprint $table) 
 		{
             $table->increments('ID')->unsigned()->unique();
-            $table->integer('TestID')->unsigned();
+            $table->integer('ExamID')->unsigned();
             $table->integer('QuestionID')->unsigned();
 			
 			// Foreign Keys
-			$table->foreign('TestID')->references('ID')->on('tbl_test');
-			$table->foreign('QuestionID')->references('ID')->on('tbl_questions');
+			$table->foreign('ExamID')->references('ID')->on('exams');
+			$table->foreign('QuestionID')->references('ID')->on('questions');
         });
     }
 
@@ -31,6 +31,6 @@ class TblTestQuestions extends Migration
      */
     public function down()
     {
-        Schema::drop('tbl_test_questions');
+        Schema::drop('exams_questions');
     }
 }
