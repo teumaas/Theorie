@@ -18,12 +18,14 @@ class Scores extends Migration
             $table->integer('UserID')->unsigned();
             $table->integer('QuestionID')->unsigned();
 			$table->integer('AnswerID')->unsigned();
-			
-			// Foreign Keys
+        });
+		
+		Schema::table('scores', function($table)
+		{
 			$table->foreign('UserID')->references('ID')->on('users');
 			$table->foreign('QuestionID')->references('ID')->on('questions');
 			$table->foreign('AnswerID')->references('ID')->on('answers');
-        });
+		});
     }
 
     /**

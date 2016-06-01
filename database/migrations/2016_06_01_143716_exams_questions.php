@@ -17,11 +17,13 @@ class ExamsQuestions extends Migration
             $table->increments('ID')->unsigned()->unique();
             $table->integer('ExamID')->unsigned();
             $table->integer('QuestionID')->unsigned();
-			
-			// Foreign Keys
+        });
+		
+		Schema::table('exams_questions', function($table)
+		{
 			$table->foreign('ExamID')->references('ID')->on('exams');
 			$table->foreign('QuestionID')->references('ID')->on('questions');
-        });
+		});
     }
 
     /**

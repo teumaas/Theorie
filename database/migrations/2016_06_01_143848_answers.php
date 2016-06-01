@@ -18,10 +18,12 @@ class Answers extends Migration
             $table->integer('QuestionID')->unsigned();
 			$table->string('Answer', 32);
 			$table->boolean('IsCorrect');
-			
-			// Foreign Keys
-			$table->foreign('QuestionID')->references('ID')->on('questions');
         });
+		
+		Schema::table('answers', function($table)
+		{
+			$table->foreign('QuestionID')->references('ID')->on('questions');
+		});
     }
 
     /**

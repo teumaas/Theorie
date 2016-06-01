@@ -16,11 +16,13 @@ class AnswersMotivations extends Migration
 		{
             $table->increments('ID')->unsigned()->unique();
             $table->integer('AnswerID')->unsigned();
-			$table->string('Context', 128);
-			
-			// Foreign Keys
-			$table->foreign('AnswerID')->references('ID')->on('answers');
+			$table->string('Context', 128);			
         });
+		
+		Schema::table('answers_motivations', function($table)
+		{
+			$table->foreign('AnswerID')->references('ID')->on('answers');
+		});
     }
 
     /**

@@ -16,12 +16,14 @@ class QuestionsCategories extends Migration
 		{
             $table->increments('ID')->unsigned()->unique();
 			$table->integer('CategoryID')->unsigned();
-			$table->integer('QuestionsID')->unsigned();
-			
-			// Foreign Keys
+			$table->integer('QuestionsID')->unsigned();			
+        });
+		
+		Schema::table('questions_categories', function($table)
+		{
 			$table->foreign('QuestionsID')->references('ID')->on('questions');
 			$table->foreign('CategoryID')->references('ID')->on('categories');
-        });
+		});
     }
 
     /**

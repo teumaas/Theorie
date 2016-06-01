@@ -19,11 +19,13 @@ class UsersExams extends Migration
             $table->integer('ExamID')->unsigned();
 			$table->integer('Score');
 			$table->boolean('Passed');
-			
-			// Foreign Keys
+        });
+		
+		Schema::table('users_exams', function($table)
+		{
 			$table->foreign('UserID')->references('ID')->on('users');
 			$table->foreign('ExamID')->references('ID')->on('exams');
-        });
+		});
 	}
 
 	/**
