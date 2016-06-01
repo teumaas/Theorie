@@ -8,8 +8,8 @@
 
 
 0. php artisan make:migration TabelName
-0. php artisan migration:rollback / php artisan migration:reset
-0. php artisan migration
+0. php artisan migrate:rollback / php artisan migrate:reset
+0. php artisan migrate
 
 
 0. php artisan make:seeder UsersTableSeeder
