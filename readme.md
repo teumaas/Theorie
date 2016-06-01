@@ -4,6 +4,18 @@
 0. Rename .env.example to .env
 0. run: php artisan key:generate
 
+## Helpfull commands
+
+
+0. php artisan make:migration TabelName
+0. php artisan migration:rollback / php artisan migration:reset
+0. php artisan migration
+
+
+0. php artisan make:seeder UsersTableSeeder
+0. php artisan db:seed
+0. php artisan db:seed --class=UserTableSeeder
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
