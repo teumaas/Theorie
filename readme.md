@@ -1,3 +1,9 @@
+## Setup
+
+run: composer install
+Rename .env.example to .env
+run: php artisan key:generate
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
