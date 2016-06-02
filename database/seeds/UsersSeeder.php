@@ -22,9 +22,10 @@ class UsersSeeder extends Seeder
 				'UserName' => $faker->userName,
 				'Email' => $faker->email,
 				'Password' => Crypt::encrypt($faker->password),
+				'LastLogin' => Carbon::now()->addHour(rand(0, 24))->addMinute(rand(0, 60))->addSecond(rand(0, 60)),
 				'remember_token' => str_random(50),
-				'created_at' => Carbon::today()->addHour(rand(0, 24))->addMinute(rand(0, 60))->addSecond(rand(0, 60)),
-				'updated_at' => Carbon::yesterday()->addHour(rand(0, 24))->addMinute(rand(0, 60))->addSecond(rand(0, 60))
+				'created_at' => Carbon::now()->addDay(-3)->addHour(rand(0, 24))->addMinute(rand(0, 60))->addSecond(rand(0, 60)),
+				'updated_at' => Carbon::now()->addDay(-1)->addMinute(rand(0, 60))->addSecond(rand(0, 60))
 			]);
 		}
     }

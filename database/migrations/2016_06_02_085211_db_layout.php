@@ -22,6 +22,8 @@ class DbLayout extends Migration
 			$table->string('Username', 32)->unique();
 			$table->string('Email', 64)->unique();
 			$table->string('Password', 32);
+			$table->dateTime('LastLogin');
+			$table->boolean('Enabled')->default(1);
 			
 			$table->rememberToken();
 			$table->timestamps();
