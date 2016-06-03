@@ -11,26 +11,8 @@
 |
 */
 
-Route::get('inloggen', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
-Route::post('inloggen', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
-Route::get('uitloggen', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
-
-Route::get('registreren', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@showRegistrationForm']);
-Route::post('registreren', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@register']);
-
-Route::get('wachtwoord/herstel/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
-Route::post('wachtwoord/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
-Route::post('wachtwoord/herstel', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
-
-Route::get('/home', 'HomeController@index');
+Route::auth();
 
 Route::get('/', 'HomeController@index');
-
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
-Route::auth();
 
 Route::get('/home', 'HomeController@index');
