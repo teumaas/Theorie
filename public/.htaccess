@@ -17,4 +17,11 @@
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+	
+	# Favicon hadeling
+	RewriteBase /
+	RewriteCond %{REQUEST_FILENAME} !-f 
+	RewriteCond car-gray.svg 
+	RewriteRule .* assets/images/icons/car-gray.svg [L]
+	
 </IfModule>
