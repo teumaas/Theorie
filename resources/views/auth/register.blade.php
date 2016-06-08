@@ -1,111 +1,116 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
+<div class="col-sm-24">
+	<div class="col-sm-offset-2 col-sm-8 box animated zoomInRight">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Welkom! - Registeren</h3>
+			</div>
+			<div class="panel-body"> 
+				<form role="form" method="POST" action="{{ url('/registreren') }}">
+					{{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('Firstname') ? ' has-error' : '' }}">
-                            <label for="Firstname" class="col-md-4 control-label">First Name</label>
+					<div class="col-sm-12">	
+						<div class="center-block logo-big"></div>
+					</div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="Firstname" value="{{ old('Firstname') }}">
+					<div class="col-sm-12">																				
+						<div class="form-group {{ $errors->has('firstname') ? ' has-error' : '' }}">
+							<div class="input-group">
+								<span class="info-green input-group-addon"><i class="icon-brush"></i></span>
+								<input id="firstname" type="text" placeholder="Voornaam" class="form-control" name="firstname" value="{{ old('firstname') }}" autocomplete="off">
+							</div>
 
-                                @if ($errors->has('Firstname'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('Firstname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-						
-						
-						<div class="form-group{{ $errors->has('Lastname') ? ' has-error' : '' }}">
-                            <label for="Lastname" class="col-md-4 control-label">Last Name</label>
+							@if ($errors->has('username'))
+							<span class="help-block">
+								<strong>{{ $errors->first('firstname') }}</strong>
+							</span>
+							@endif
+						</div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="Lastname" value="{{ old('Lastname') }}">
+						<div class="form-group {{ $errors->has('lastname') ? ' has-error' : '' }}">
+							<div class="input-group">
+								<span class="info-green input-group-addon"><i class="icon-clipboard"></i></span>
+								<input id="lastname" type="text" placeholder="Achternaam" class="form-control" name="lastname" value="{{ old('lastname') }}" autocomplete="off">
+							</div>
 
-                                @if ($errors->has('Lastname'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('Lastname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-						
-						<div class="form-group{{ $errors->has('UserName') ? ' has-error' : '' }}">
-                            <label for="UserName" class="col-md-4 control-label">UserName</label>
+							@if ($errors->has('lastname'))
+							<span class="help-block">
+								<strong>{{ $errors->first('lastname') }}</strong>
+							</span>
+							@endif
+						</div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="UserName" value="{{ old('UserName') }}">
+						<div class="form-group {{ $errors->has('username') ? ' has-error' : '' }}">
+							<div class="input-group">
+								<span class="info-green input-group-addon"><i class="icon-user"></i></span>
+								<input id="username" type="text" placeholder="Gebruikersnaam" class="form-control" name="username" value="{{ old('username') }}" autocomplete="off">
+							</div>
 
-                                @if ($errors->has('UserName'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('UserName') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+							@if ($errors->has('lastname'))
+							<span class="help-block">
+								<strong>{{ $errors->first('username') }}</strong>
+							</span>
+							@endif
+						</div>
 
-                        <div class="form-group{{ $errors->has('Email') ? ' has-error' : '' }}">
-                            <label for="Email" class="col-md-4 control-label">E-Mail Address</label>
+						<div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+							<div class="input-group">
+								<span class="info-green input-group-addon"><i class="icon-mail"></i></span>
+								<input id="email" type="email" placeholder="E-mail" class="form-control" name="email" value="{{ old('email') }}" autocomplete="off">
+							</div>
 
-                            <div class="col-md-6">
-                                <input id="Email" type="Email" class="form-control" name="Email" value="{{ old('Email') }}">
+							@if ($errors->has('email'))
+							<span class="help-block">
+								<strong>{{ $errors->first('email') }}</strong>
+							</span>
+							@endif
+						</div>
 
-                                @if ($errors->has('Email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('Email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+						<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+							<div class="input-group">
+								<span class="info-green input-group-addon"><i class="icon-key"></i></span>
+								<input id="password" type="password" placeholder="Wachtwoord" class="form-control" name="password" value="{{ old('password') }}" autocomplete="off">
+							</div>
 
-                        <div class="form-group{{ $errors->has('Password') ? ' has-error' : '' }}">
-                            <label for="Password" class="col-md-4 control-label">Password</label>
+							@if ($errors->has('password'))
+							<span class="help-block">
+								<strong>{{ $errors->first('password') }}</strong>
+							</span>
+							@endif
+						</div>
 
-                            <div class="col-md-6">
-                                <input id="Password" type="Password" class="form-control" name="Password">
+						<div class="form-group {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+							<div class="input-group">
+								<span class="info-green input-group-addon"><i class="icon-key"></i></span>
+								<input id="password_confirmation" type="password" placeholder="Herhaal wachtwoord" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}" autocomplete="off">
+							</div>
 
-                                @if ($errors->has('Password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('Password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+							@if ($errors->has('password_confirmation'))
+							<span class="help-block">
+								<strong>{{ $errors->first('password_confirmation') }}</strong>
+							</span>
+							@endif
+						</div>
+					</div>
 
-                        <div class="form-group{{ $errors->has('Password_confirmation') ? ' has-error' : '' }}">
-                            <label for="Password-confirm" class="col-md-4 control-label">Confirm Password</label>
+					<div class="col-sm-7">
+						<a type="submit" id="submit" name="submit" class="btn btn-info" role="button" href="{{ url('/inloggen') }}">
+							<span class="icon-back"></span>
+							Terug
+						</a>
 
-                            <div class="col-md-6">
-                                <input id="Password-confirm" type="Password" class="form-control" name="Password_confirmation">
-
-                                @if ($errors->has('Password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('Password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+						<button type="submit" class="btn btn-info">								
+							<i class="icon-user-add"></i>
+							Registreren
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 @endsection
+
+

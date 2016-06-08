@@ -16,19 +16,16 @@ class DbLayout extends Migration
 		{
 			$table->engine = 'InnoDB';
 			
-			$table->increments('id')->unsigned()->unique();
-			$table->string('firstname');
-			$table->string('lastname');
-			$table->string('username')->unique();
-			$table->string('email')->unique();
-			$table->string('password');
-			$table->boolean('enabled')->default(1);
-			
+			$table->increments('id');
+			$table->string('name', 32);
+			$table->string('email', 64)->unique();
+			$table->string('password', 32);
+		
 			$table->rememberToken();
 			$table->timestamps();
 		});
 		
-		Schema::create('password_resets', function (Blueprint $table) 
+		Schema::create('users_password_resets', function (Blueprint $table) 
 		{
 			$table->engine = 'InnoDB';
 			
@@ -54,7 +51,7 @@ class DbLayout extends Migration
 			$table->engine = 'InnoDB';
 			
             $table->increments('id')->unsigned()->unique();
-            $table->string('title');
+            $table->string('title', 32);
 			$table->boolean('practice');
         });
 		
@@ -82,7 +79,7 @@ class DbLayout extends Migration
 			$table->engine = 'InnoDB';
 			
             $table->increments('id')->unsigned()->unique();
-            $table->string('typename');
+            $table->string('typename', 32);
         });
 		
 		Schema::create('questions', function (Blueprint $table) 
@@ -91,7 +88,7 @@ class DbLayout extends Migration
 			
             $table->increments('id')->unsigned()->unique();
             $table->integer('typeid')->unsigned();
-			$table->string('title');
+			$table->string('title', 64);
 			$table->string('imageurl');
         });
 			
@@ -110,7 +107,7 @@ class DbLayout extends Migration
 			
             $table->increments('id')->unsigned()->unique();
             $table->integer('questionid')->unsigned()->index();
-			$table->string('answer');
+			$table->string('answer', 32);
 			$table->boolean('iscorrect');
         });
 				
@@ -120,7 +117,7 @@ class DbLayout extends Migration
 			
             $table->increments('id')->unsigned()->unique();
             $table->integer('answerid')->unsigned();
-			$table->string('context');
+			$table->string('context', 128);
         });
 				
 		Schema::create('categories', function (Blueprint $table) 
@@ -128,7 +125,7 @@ class DbLayout extends Migration
 			$table->engine = 'InnoDB';
 			
             $table->increments('id')->unsigned()->unique();
-			$table->string('name');
+			$table->string('name', 32);
         });
 		
 		//Foreign Keys
@@ -192,7 +189,7 @@ class DbLayout extends Migration
 		Schema::drop('exams_questions');
 		Schema::drop('answers_motivations');
 		Schema::drop('users');
-		Schema::drop('password_resets');
+		Schema::drop('users_password_resets');
 		Schema::drop('questions');
 		Schema::drop('scores');
 		

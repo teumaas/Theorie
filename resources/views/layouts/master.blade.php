@@ -21,13 +21,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand logo" href="#"></a>
+					<a class="navbar-brand logo" href="{{ url('/') }}"></a>
 				</div>
 				<div id="bs-example-navbar-collapse-3" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								<span class="icon-user"></span> Welkom, {{ Auth::user()->name }}!
+								<span class="icon-user"></span> Welkom, {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}!
 								<b class="caret"></b>
 							</a>
 							
@@ -37,19 +37,20 @@
 								</li>
 						
 								<li>
-									<a href="#">Verander wachtwoord</a>
+									<a href="{{ url('/wachtwoord/veranderen') }}">Verander wachtwoord</a>
 								</li>
 							</ul>
 						</li>
 						
 						<li>
-							<a class="icon-logout" href="#">Uitloggen</a>
+							<a class="icon-logout" href="{{ url('/uitloggen') }}">Uitloggen</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		@endif
+		
 		<div class="container">
             <div class="row">
 				@yield('content')

@@ -11,8 +11,22 @@
 |
 */
 
-Route::auth();
+Route::get('/', function () {
+	return Redirect::to('inloggen');
+});
 
-Route::get('/', 'HomeController@index');
+Route::get('inloggen', 'Auth\AuthController@showLoginForm');
+Route::post('inloggen', 'Auth\AuthController@login');
+Route::get('uitloggen', 'Auth\AuthController@logout');
 
-Route::get('/home', 'HomeController@index');
+Route::get('registreren', 'Auth\AuthController@showRegistrationForm');
+Route::post('registreren', 'Auth\AuthController@register');
+
+Route::get('wachtwoord/herstel/{token?}', 'Auth\PasswordController@showResetForm');
+Route::post('wachtwoord/email', 'Auth\PasswordController@sendResetLinkEmail');
+Route::post('wachtwoord/reset', 'Auth\PasswordController@reset');
+
+Route::get('wachtwoord/veranderen', 'UserController@showPasswordChangeForm');
+Route::post('wachtwoord/veranderen', 'UserController@passwordChange');
+
+Route::get('dashboard', 'HomeController@index');
