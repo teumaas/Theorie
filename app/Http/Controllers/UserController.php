@@ -22,12 +22,20 @@ class UserController extends Controller
     {
 		return view("auth.passwords.change");
     }
-	
-	public function passwordChange(array $data)
-    {
-		$oldPass = Input::get('old_password');
-		$newPass = Input::get('password');
-		$confNewPass = Input::get('password_conf');
 		
+	public function passwordChange(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        Auth::guard($this->getGuard())->login($this->create($request->all()));
+
+        return redirect($this->redirectPath());
     }
+	
 }
