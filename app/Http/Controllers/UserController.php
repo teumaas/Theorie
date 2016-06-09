@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\User;
+use App\Models\User;
 use Validator;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 
@@ -23,19 +24,9 @@ class UserController extends Controller
 		return view("auth.passwords.change");
     }
 		
-	public function passwordChange(Request $request)
+	public function passwordChange(Requests\PasswordChangeRequest $request)
     {
-        $validator = $this->validator($request->all());
-
-        if ($validator->fails()) {
-            $this->throwValidationException(
-                $request, $validator
-            );
-        }
-
-        Auth::guard($this->getGuard())->login($this->create($request->all()));
-
-        return redirect($this->redirectPath());
+		
+		
     }
-	
 }

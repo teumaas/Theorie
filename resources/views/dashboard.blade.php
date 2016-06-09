@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Dashboard!')
+
 @section('content')
 <div class="container">
 	<div class="row">
@@ -7,7 +9,7 @@
 			<div class="col-sm-offset-2 col-sm-8 box animated fadeIn">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title">Welkom! - Dashboard!</h3>
+						<h3 class="panel-title">Welkom! - @yield('title')</h3>
 					</div>
 					<div class="panel-body"> 
 						<form id="div1"method="post">

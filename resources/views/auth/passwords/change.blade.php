@@ -1,18 +1,20 @@
 @extends('layouts.master')
 
+@section('title', 'Wachtwoord wijzigen')
+
 @section('content')
 <div class="col-sm-24">
 	<div class="col-sm-offset-2 col-sm-8 box animated zoomInRight">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h3 class="panel-title">Wachtwoord wijzigen</h3>
+				<h3 class="panel-title">@yield('title')</h3>
 			</div>
 			<div class="panel-body"> 
 				<form role="form" method="POST" action="{{ url('/wachtwoord/change') }}">
 					{{ csrf_field() }}
 
 					<div class="col-sm-12">
-
+												
 						<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
 							<div class="input-group">
 								<span class="info-green input-group-addon"><i class="icon-key"></i></span>
@@ -25,7 +27,6 @@
 							</span>
 							@endif
 						</div>
-
 
 						<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
 							<div class="input-group">

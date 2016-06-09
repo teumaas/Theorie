@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Wachtwoord opnieuw instellen')
+
 @section('content')
 <div class="container">
 	<div class="row">				
@@ -7,7 +9,7 @@
 			<div class="col-sm-offset-2 col-sm-8 box animated zoomInRight">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title">Welkom! - Wachtwoord opnieuw instellen</h3>
+						<h3 class="panel-title">Welkom! - @yield('title')</h3>
 					</div>
 					<div class="panel-body"> 
 						<form role="form" method="POST" action="{{ url('/wachtwoord/herstel') }}">

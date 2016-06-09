@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-				
+		@section('app', 'Theorie')
+		
 		@include('layouts.meta')
 	
-        <title>Theorie</title>
+        <title>@yield('app') - @yield('title')</title>
 		
 		@include('layouts.css')
 		

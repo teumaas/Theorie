@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'We will be back soon!')
+@section('title', 'Page not found...')
 
 @section('content')
 <div class="col-sm-24">
@@ -10,7 +10,7 @@
 				<h3 class="panel-title">@yield('title')</h3>
 			</div>
 			<div class="panel-body"> 
-				<h1 class="text-center">503!<h1>
+				<h1 class="text-center">404!<h1>
 			</div>
 		</div>
 	</div>
