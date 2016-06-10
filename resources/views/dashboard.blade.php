@@ -18,7 +18,7 @@
 									<div class="thumbnail thumbnail-noborder">
 										<img class="thumbnail-imgs undrag" src="{!! asset('assets/images/icons/cogwheel.svg') !!}">
 										<div class="caption text-center">
-											<h3 class="undrag">Vragen oefenen</h3>
+											<h3 class="undrag">Oefenen</h3>
 										</div>																	
 
 										<select name="selecter_basic" class="caption selecter_1 info-green">
